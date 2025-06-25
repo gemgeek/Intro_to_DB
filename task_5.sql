@@ -1,6 +1,6 @@
 USE alx_book_store;
 -- SQL script to insert a record into the Customers table in the alx_book_store database.
-INSERT INTO Customers (
+INSERT INTO customer ( 
     customer_id,
     customer_name,
     email,
