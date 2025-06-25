@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS alx_book_store;
-
-CREATE DATABASE alx_book_store;
+CREATE DATABASE IF NOT EXISTS alx_book_store;
 
 USE alx_book_store;
 
@@ -12,7 +10,7 @@ CREATE TABLE Authors (
 CREATE TABLE Books (
     book_id INT PRIMARY KEY,
     title VARCHAR(130),
-    author_id INT, -- This will be a foreign key
+    author_id INT,
     price DOUBLE,
     publication_date DATE,
     FOREIGN KEY (author_id) REFERENCES Authors(author_id)
@@ -27,7 +25,7 @@ CREATE TABLE Customers (
 
 CREATE TABLE Orders (
     order_id INT PRIMARY KEY,
-    customer_id INT, -- This will be a foreign key
+    customer_id INT,
     order_date DATE,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
