@@ -8,6 +8,6 @@ SELECT
     COLUMN_DEFAULT,
     EXTRA
 FROM
-    information_schema.COLUMNS
+    INFORMATION_SCHEMA.COLUMNS -- <-- THIS LINE WAS CHANGED
 WHERE
     TABLE_SCHEMA = 'alx_book_store' AND TABLE_NAME = 'Books';
