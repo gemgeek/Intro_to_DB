@@ -4,13 +4,9 @@ import mysql.connector
 from mysql.connector import errorcode
 
 def create_database():
-    """
-    Connects to the MySQL server and creates the 'alx_book_store' database
-    if it does not already exist.
-    Handles connection errors and ensures the database connection is closed.
-    """
-    cnx = None  # Initialize connection object to None
-    cursor = None # Initialize cursor object to None
+    
+    cnx = None  
+    cursor = None 
 
     try:
         # Establish a connection to the MySQL server
@@ -24,9 +20,11 @@ def create_database():
         # Create a cursor object, which allows you to execute SQL queries
         cursor = cnx.cursor()
 
-        # SQL command to create the database IF NOT EXISTS
-        DB_NAME = 'alx_book_store'
-        create_db_query = f"CREATE DATABASE IF NOT EXISTS {DB_NAME}"
+        
+        create_db_query = "CREATE DATABASE IF NOT EXISTS alx_book_store"
+
+        
+        DB_NAME = 'alx_book_store' # Keeping this for the print statement
 
         print(f"Attempting to create database '{DB_NAME}'...")
         cursor.execute(create_db_query)
@@ -39,8 +37,7 @@ def create_database():
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Error: Access denied. Check your MySQL username and password.")
         elif err.errno == errorcode.ER_BAD_DB_ERROR:
-            # This specific error usually means the database doesn't exist,
-            # but for CREATE DATABASE, it's more about connection issues if it fails here.
+            # This error occurs if the database does not exist
             print(f"Error: Database does not exist. This shouldn't happen during creation.")
         else:
             print(f"Error connecting or creating database: {err}")
